@@ -14,8 +14,8 @@ function VerticaLinks() {
   const { pathname } = useLocation();
 
   return (
-    <div class={rootClass}>
-      <ul class={listClass}>
+    <div className={rootClass}>
+      <ul className={listClass}>
         {paths.map(({ path, title, chapter }, index) => {
           const hasDivider = chapter !== paths[index - 1]?.chapter;
           const isActive = pathname === path;
@@ -23,16 +23,16 @@ function VerticaLinks() {
           return (
             <Fragment key={path}>
               {hasDivider && (
-                <li class={titleClass}>
+                <li className={titleClass}>
                   <b>{chapter}</b>
                 </li>
               )}
               <li key={index}>
                 <Link
                   to={path}
-                  class={clsx(linkClass, isActive && activeLinkClass)}
+                  className={clsx(linkClass, isActive && activeLinkClass)}
                 >
-                  {String(index + 1).padStart(3, '0')}. {title.slice(0, 12)}...
+                  {String(index + 1).padStart(3, '0')}. {title}
                 </Link>
               </li>
             </Fragment>
